@@ -3,6 +3,7 @@ package com.jaimeg.infomovie.models
 import com.jaimeg.infomovie.models.api.ImpGetMoviesCallback
 import com.jaimeg.infomovie.models.api.ImpNetwork
 import com.jaimeg.infomovie.models.db.InfoMovieDB
+import com.jaimeg.infomovie.models.db.MoviesPopulateDB
 import com.jaimeg.infomovie.models.entities.Movie
 
 class MovieRepository {
@@ -21,8 +22,7 @@ class MovieRepository {
     }
 
     fun setMoviesDB(movies: MutableList<Movie>, db: InfoMovieDB) {
-        db.movieDao().insertAll(movies)
-
+        MoviesPopulateDB.populateAsync(db,movies)
     }
 
     fun getMoviesFromIdentifiers(db: InfoMovieDB, idList: MutableList<Int>): MutableList<Movie> {

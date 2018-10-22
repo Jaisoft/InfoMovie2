@@ -1,6 +1,7 @@
 package com.jaimeg.infomovie.views
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
@@ -27,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            toSeeFavoriteMovie( )
         }
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout_main)
@@ -41,7 +41,14 @@ class MainActivity : AppCompatActivity() {
 
         movieList = ArrayList()
         getMovies()
+        swipeRefreshLayout.isRefreshing = false
 
+    }
+
+    fun toSeeFavoriteMovie( ) {
+        val intent = Intent(this, FavoriteActivity::class.java)
+
+        startActivity(intent)
     }
 
     fun getMovies() {

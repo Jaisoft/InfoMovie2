@@ -74,7 +74,7 @@ class MoviesAdapter(
             textViewGenres = itemView.findViewById(R.id.textView_movie_genre)
             imageViewPoster = itemView.findViewById(R.id.textView_movie_poster)
             cardViewMovie = itemView.findViewById(R.id.cardview_movies)
-            imageViewFavoriteMovie = itemView.findViewById(R.id.imageView_favorite_movie)
+            imageViewFavoriteMovie = itemView.findViewById(R.id.imageView_movie_favorite)
 
         }
 
